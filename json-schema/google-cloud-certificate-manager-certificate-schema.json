@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/certificatemanager/certificate.json",
+  "title": "Google Cloud Certificate Manager Certificate",
+  "description": "Schema for a Certificate Manager certificate resource, representing a TLS certificate managed or uploaded for use with Google Cloud services.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of the certificate"
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the certificate"
+    },
+    "labels": {
+      "type": "object",
+      "description": "Labels associated with the certificate",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "managed": {
+      "$ref": "#/$defs/ManagedCertificate",
+      "description": "Configuration for a Google-managed certificate"
+    },
+    "selfManaged": {
+      "$ref": "#/$defs/SelfManagedCertificate",
+      "description": "Configuration for a self-managed certificate"
+    },
+    "sanDnsnames": {
+      "type": "array",
+      "description": "Subject Alternative Names of the certificate",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pemCertificate": {
+      "type": "string",
+      "description": "The PEM-encoded certificate chain"
+    },
+    "expireTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The expiration time of the certificate"
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The creation time of the certificate"
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last update time of the certificate"
+    },
+    "scope": {
+      "type": "string",
+      "description": "The scope of the certificate",
+      "enum": ["DEFAULT", "EDGE_CACHE", "ALL_REGIONS"]
+    }
+  },
+  "$defs": {
+    "ManagedCertificate": {
+      "type": "object",
+      "description": "Configuration for a Google-managed certificate",
+      "properties": {
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The domains for which the certificate should be provisioned"
+        },
+        "dnsAuthorizations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Resource names of DNS authorizations for the certificate"
+        },
+        "issuanceConfig": {
+          "type": "string",
+          "description": "The resource name of the issuance configuration"
+        },
+        "state": {
+          "type": "string",
+          "description": "The provisioning state of the managed certificate",
+          "enum": ["PROVISIONING", "FAILED", "ACTIVE"]
+        },
+        "provisioningIssue": {
+          "type": "object",
+          "description": "Information about provisioning issues",
+          "properties": {
+            "reason": {
+              "type": "string",
+              "enum": ["AUTHORIZATION_ISSUE", "RATE_LIMITED"]
+            },
+            "details": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "SelfManagedCertificate": {
+      "type": "object",
+      "description": "Configuration for a self-managed certificate",
+      "properties": {
+        "pemCertificate": {
+          "type": "string",
+          "description": "PEM-encoded certificate chain"
+        },
+        "pemPrivateKey": {
+          "type": "string",
+          "description": "PEM-encoded private key"
+        }
+      }
+    }
+  }
+}

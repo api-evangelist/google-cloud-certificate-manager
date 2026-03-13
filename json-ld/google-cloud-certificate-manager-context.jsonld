@@ -1,0 +1,66 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cm": "https://cloud.google.com/certificate-manager/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Certificate": {
+      "@id": "cm:Certificate",
+      "@context": {
+        "name": "cm:certificateName",
+        "description": "schema:description",
+        "sanDnsnames": "cm:sanDnsnames",
+        "pemCertificate": "cm:pemCertificate",
+        "scope": "cm:scope",
+        "managed": "cm:managedConfig",
+        "selfManaged": "cm:selfManagedConfig",
+        "expireTime": {
+          "@id": "cm:expireTime",
+          "@type": "xsd:dateTime"
+        },
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "labels": "cm:labels"
+      }
+    },
+
+    "CertificateMap": {
+      "@id": "cm:CertificateMap",
+      "@context": {
+        "name": "cm:mapName",
+        "description": "schema:description",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "labels": "cm:labels"
+      }
+    },
+
+    "DnsAuthorization": {
+      "@id": "cm:DnsAuthorization",
+      "@context": {
+        "name": "cm:authorizationName",
+        "description": "schema:description",
+        "domain": "cm:domain",
+        "dnsResourceRecord": "cm:dnsResourceRecord",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}
