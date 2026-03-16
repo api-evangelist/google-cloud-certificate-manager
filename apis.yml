@@ -1,3 +1,4 @@
+aid: google-cloud-certificate-manager
 name: Google Cloud Certificate Manager
 description: >-
   Google Cloud Certificate Manager is a service that lets you acquire and manage
@@ -8,8 +9,9 @@ description: >-
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-certificate-manager/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
 - Certificates
 - TLS
@@ -39,19 +41,29 @@ apis:
     url: https://cloud.google.com/certificate-manager/docs/reference/rest
   - type: OpenAPI
     url: openapi/certificate-manager-api-openapi.yml
+  - type: Authentication
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
   - type: JSONSchema
     url: json-schema/google-cloud-certificate-manager-certificate-schema.json
 common:
-- type: GettingStarted
+- type: Portal
+  url: https://cloud.google.com/certificate-manager
+- type: Getting Started
   url: https://cloud.google.com/certificate-manager/docs/overview
-- type: Pricing
-  url: https://cloud.google.com/certificate-manager/pricing
+- type: Documentation
+  url: https://cloud.google.com/certificate-manager/docs
 - type: Authentication
   url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
-- type: Support
-  url: https://cloud.google.com/certificate-manager/docs/support
+- type: Pricing
+  url: https://cloud.google.com/certificate-manager/pricing
+- type: Terms of Service
+  url: https://cloud.google.com/terms
+- type: Privacy Policy
+  url: https://policies.google.com/privacy
 - type: Status
   url: https://status.cloud.google.com
+- type: Support
+  url: https://cloud.google.com/certificate-manager/docs/support
 - type: JSON-LD
   url: json-ld/google-cloud-certificate-manager-context.jsonld
 maintainers:
