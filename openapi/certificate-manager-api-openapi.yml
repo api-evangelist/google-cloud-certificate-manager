@@ -35,7 +35,7 @@ paths:
   /projects/{projectId}/locations/{location}/certificates:
     get:
       operationId: listCertificates
-      summary: List certificates
+      summary: Google Cloud Certificate Manager List certificates
       description: Lists certificates in a given project and location.
       tags:
         - Certificates
@@ -53,7 +53,7 @@ paths:
                 $ref: '#/components/schemas/ListCertificatesResponse'
     post:
       operationId: createCertificate
-      summary: Create a certificate
+      summary: Google Cloud Certificate Manager Create a certificate
       description: Creates a new certificate in a given project and location.
       tags:
         - Certificates
@@ -81,7 +81,7 @@ paths:
   /projects/{projectId}/locations/{location}/certificateMaps:
     get:
       operationId: listCertificateMaps
-      summary: List certificate maps
+      summary: Google Cloud Certificate Manager List certificate maps
       description: Lists certificate maps in a given project and location.
       tags:
         - CertificateMaps
@@ -100,7 +100,7 @@ paths:
   /projects/{projectId}/locations/{location}/dnsAuthorizations:
     get:
       operationId: listDnsAuthorizations
-      summary: List DNS authorizations
+      summary: Google Cloud Certificate Manager List DNS authorizations
       description: Lists DNS authorizations in a given project and location.
       tags:
         - DnsAuthorizations
