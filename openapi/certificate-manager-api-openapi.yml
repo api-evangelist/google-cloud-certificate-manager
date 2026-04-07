@@ -19,16 +19,12 @@ servers:
   - url: https://certificatemanager.googleapis.com/v1
     description: Production Server
 tags:
-  - name: Certificates
-    description: Operations for managing TLS certificates
   - name: CertificateMaps
     description: Operations for managing certificate maps
-  - name: CertificateMapEntries
-    description: Operations for managing certificate map entries
+  - name: Certificates
+    description: Operations for managing TLS certificates
   - name: DnsAuthorizations
     description: Operations for managing DNS authorizations
-  - name: CertificateIssuanceConfigs
-    description: Operations for managing certificate issuance configurations
 security:
   - oauth2: []
 paths:
