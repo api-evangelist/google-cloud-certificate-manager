@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Certificate Manager API — CertificateMaps
+  description: 'Google Cloud Certificate Manager API — CertificateMaps. 1 operations. Lead operation: Google Cloud Certificate
+    Manager List certificate maps. Self-contained Naftiko capability covering one Google Cloud Certificate Manager business
+    surface.'
+  tags:
+  - Google Cloud Certificate Manager
+  - CertificateMaps
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_CERTIFICATE_MANAGER_API_KEY: GOOGLE_CLOUD_CERTIFICATE_MANAGER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: certificate-manager-certificatemaps
+    baseUri: https://certificatemanager.googleapis.com/v1
+    description: Google Cloud Certificate Manager API — CertificateMaps business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations-location-certificateMaps
+      path: /projects/{projectId}/locations/{location}/certificateMaps
+      operations:
+      - name: listcertificatemaps
+        method: GET
+        description: Google Cloud Certificate Manager List certificate maps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_CERTIFICATE_MANAGER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: certificate-manager-certificatemaps-rest
+    port: 8080
+    description: REST adapter for Google Cloud Certificate Manager API — CertificateMaps. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations/{location}/certificatemaps
+      name: projects-projectid-locations-location-certificatemaps
+      description: REST surface for projects-projectId-locations-location-certificateMaps.
+      operations:
+      - method: GET
+        name: listcertificatemaps
+        description: Google Cloud Certificate Manager List certificate maps
+        call: certificate-manager-certificatemaps.listcertificatemaps
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: certificate-manager-certificatemaps-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Certificate Manager API — CertificateMaps. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: google-cloud-certificate-manager-list
+      description: Google Cloud Certificate Manager List certificate maps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: certificate-manager-certificatemaps.listcertificatemaps
+      outputParameters:
+      - type: object
+        mapping: $.
