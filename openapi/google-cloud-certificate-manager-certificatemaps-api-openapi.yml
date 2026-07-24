@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Certificate Manager CertificateMaps API
+  description: The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/certificate-manager/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://certificatemanager.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: CertificateMaps
+  description: Operations for managing certificate maps
+paths:
+  /projects/{projectId}/locations/{location}/certificateMaps:
+    get:
+      operationId: listCertificateMaps
+      summary: Google Cloud Certificate Manager List certificate maps
+      description: Lists certificate maps in a given project and location.
+      tags:
+      - CertificateMaps
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificateMapsResponse'
+components:
+  schemas:
+    CertificateMap:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    ListCertificateMapsResponse:
+      type: object
+      properties:
+        certificateMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CertificateMap'
+        nextPageToken:
+          type: string
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Certificate Manager API Documentation
+  url: https://cloud.google.com/certificate-manager/docs/reference/rest
