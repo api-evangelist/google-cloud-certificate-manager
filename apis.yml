@@ -4,7 +4,20 @@ description: >-
   Google Cloud Certificate Manager is a service that lets you acquire and manage TLS (SSL) certificates for use with
   Google Cloud load balancers and other Google Cloud services. It supports provisioning, renewing, and deploying both
   Google-managed and self-managed certificates, simplifying certificate lifecycle management at scale.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-certificate-manager.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-certificate-manager/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -18,31 +31,57 @@ tags:
   - SSL
   - TLS
 apis:
-  - name: Certificate Manager API
-    description: >-
-      The Certificate Manager API enables developers to programmatically manage TLS certificates, certificate maps,
-      certificate map entries, and DNS authorizations for Google Cloud resources. It supports creating and managing
-      Google-managed certificates with automatic provisioning and renewal, as well as uploading self-managed
-      certificates. The API allows mapping certificates to hostnames and associating them with load balancer
-      configurations.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/certificate-manager/docs
-    baseURL: https://certificatemanager.googleapis.com
-    tags:
-      - Certificate Maps
-      - Certificates
-      - DNS Authorization
-      - TLS
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/certificate-manager/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/certificate-manager-api-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
-      - type: JSONSchema
-        url: json-schema/google-cloud-certificate-manager-certificate-schema.json
+- aid: google-cloud-certificate-manager:google-cloud-certificate-manager-certificatemaps-api
+  name: Google Cloud Certificate Manager CertificateMaps API
+  description: Operations for managing certificate maps
+  humanURL: https://cloud.google.com/certificate-manager/docs
+  baseURL: https://certificatemanager.googleapis.com
+  tags:
+  - CertificateMaps
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-certificate-manager-certificatemaps-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-certificate-manager-certificate-schema.json
+- aid: google-cloud-certificate-manager:google-cloud-certificate-manager-certificates-api
+  name: Google Cloud Certificate Manager Certificates API
+  description: Operations for managing TLS certificates
+  humanURL: https://cloud.google.com/certificate-manager/docs
+  baseURL: https://certificatemanager.googleapis.com
+  tags:
+  - Certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-certificate-manager-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-certificate-manager-certificate-schema.json
+- aid: google-cloud-certificate-manager:google-cloud-certificate-manager-dnsauthorizations-api
+  name: Google Cloud Certificate Manager DnsAuthorizations API
+  description: Operations for managing DNS authorizations
+  humanURL: https://cloud.google.com/certificate-manager/docs
+  baseURL: https://certificatemanager.googleapis.com
+  tags:
+  - DnsAuthorizations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-certificate-manager-dnsauthorizations-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/certificate-manager/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-certificate-manager-certificate-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-certificate-manager/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-certificate-manager-agentic-access.yml
   - type: VulnerabilityDisclosure
