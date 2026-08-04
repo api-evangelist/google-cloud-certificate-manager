@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "8c57de91-f303-459e-93a8-67d5f311a60d",
+    "name": "Google Cloud Certificate Manager CertificateMaps DnsAuthorizations API",
+    "description": "The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:28.000Z",
+    "updatedAt": "2026-07-28T01:46:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8c57de91-f303-459e-93a8-67d5f311a60d"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "dnsAuthorizations",
+                      "item": [
+                        {
+                          "name": "Google Cloud Certificate Manager List DNS authorizations",
+                          "id": "5cd51935-dd1d-45fe-a063-c1f11bcb9f83",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/dnsAuthorizations?pageSize=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "dnsAuthorizations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "88afdf63-226f-444a-87b4-2256e9d71792",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "c24ce9c0-d944-4d94-9a10-c4927cd93282",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists DNS authorizations in a given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "54c09def-37b8-45a3-87bb-8ca0dcd4b7b3",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/dnsAuthorizations?pageSize=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "dnsAuthorizations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"dnsAuthorizations\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"dnsResourceRecord\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"dnsResourceRecord\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"data\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:29.000Z",
+                              "updatedAt": "2026-07-28T01:46:29.000Z",
+                              "uid": "35240-54c09def-37b8-45a3-87bb-8ca0dcd4b7b3"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:29.000Z",
+                          "updatedAt": "2026-07-28T01:46:29.000Z",
+                          "uid": "35240-5cd51935-dd1d-45fe-a063-c1f11bcb9f83"
+                        }
+                      ],
+                      "id": "fd7c43bf-86e1-4c63-a1a1-7fb663a5c09d",
+                      "createdAt": "2026-07-28T01:46:29.000Z",
+                      "updatedAt": "2026-07-28T01:46:29.000Z",
+                      "uid": "35240-fd7c43bf-86e1-4c63-a1a1-7fb663a5c09d"
+                    }
+                  ],
+                  "id": "e6c1fa81-6e3f-4e1d-8f62-3c54464bbf72",
+                  "createdAt": "2026-07-28T01:46:29.000Z",
+                  "updatedAt": "2026-07-28T01:46:29.000Z",
+                  "uid": "35240-e6c1fa81-6e3f-4e1d-8f62-3c54464bbf72"
+                }
+              ],
+              "id": "f8a28cbd-f352-448c-889e-12957cb74f9e",
+              "createdAt": "2026-07-28T01:46:29.000Z",
+              "updatedAt": "2026-07-28T01:46:29.000Z",
+              "uid": "35240-f8a28cbd-f352-448c-889e-12957cb74f9e"
+            }
+          ],
+          "id": "f082ce30-5514-40d1-8779-6f1cd9bc0c24",
+          "createdAt": "2026-07-28T01:46:29.000Z",
+          "updatedAt": "2026-07-28T01:46:29.000Z",
+          "uid": "35240-f082ce30-5514-40d1-8779-6f1cd9bc0c24"
+        }
+      ],
+      "id": "f2463d99-6c35-4bce-9fc5-a55d8af3384a",
+      "createdAt": "2026-07-28T01:46:29.000Z",
+      "updatedAt": "2026-07-28T01:46:29.000Z",
+      "uid": "35240-f2463d99-6c35-4bce-9fc5-a55d8af3384a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://certificatemanager.googleapis.com/v1"
+    }
+  ]
+}

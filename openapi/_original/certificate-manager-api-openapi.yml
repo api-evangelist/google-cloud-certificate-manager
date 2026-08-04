@@ -1,0 +1,287 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Certificate Manager API
+  description: >-
+    The Certificate Manager API provides programmatic access to manage TLS
+    certificates, certificate maps, DNS authorizations, and certificate issuance
+    configurations for Google Cloud. It supports automated provisioning and
+    renewal of Google-managed certificates and upload of self-managed
+    certificates.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/certificate-manager/docs/support
+  termsOfService: https://cloud.google.com/terms
+externalDocs:
+  description: Certificate Manager API Documentation
+  url: https://cloud.google.com/certificate-manager/docs/reference/rest
+servers:
+  - url: https://certificatemanager.googleapis.com/v1
+    description: Production Server
+tags:
+  - name: CertificateMaps
+    description: Operations for managing certificate maps
+  - name: Certificates
+    description: Operations for managing TLS certificates
+  - name: DnsAuthorizations
+    description: Operations for managing DNS authorizations
+security:
+  - oauth2: []
+paths:
+  /projects/{projectId}/locations/{location}/certificates:
+    get:
+      operationId: listCertificates
+      summary: Google Cloud Certificate Manager List certificates
+      description: Lists certificates in a given project and location.
+      tags:
+        - Certificates
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificatesResponse'
+    post:
+      operationId: createCertificate
+      summary: Google Cloud Certificate Manager Create a certificate
+      description: Creates a new certificate in a given project and location.
+      tags:
+        - Certificates
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - name: certificateId
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Certificate'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/certificateMaps:
+    get:
+      operationId: listCertificateMaps
+      summary: Google Cloud Certificate Manager List certificate maps
+      description: Lists certificate maps in a given project and location.
+      tags:
+        - CertificateMaps
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCertificateMapsResponse'
+  /projects/{projectId}/locations/{location}/dnsAuthorizations:
+    get:
+      operationId: listDnsAuthorizations
+      summary: Google Cloud Certificate Manager List DNS authorizations
+      description: Lists DNS authorizations in a given project and location.
+      tags:
+        - DnsAuthorizations
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDnsAuthorizationsResponse'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the certificate
+        description:
+          type: string
+          description: A human-readable description of the certificate
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        managed:
+          type: object
+          description: Configuration for Google-managed certificates
+          properties:
+            domains:
+              type: array
+              items:
+                type: string
+              description: Domains for which a managed SSL certificate should be generated
+            dnsAuthorizations:
+              type: array
+              items:
+                type: string
+              description: DNS authorizations for the certificate
+            issuanceConfig:
+              type: string
+              description: The resource name of the issuance config
+            state:
+              type: string
+              enum: [PROVISIONING, FAILED, ACTIVE]
+        selfManaged:
+          type: object
+          description: Configuration for self-managed certificates
+          properties:
+            pemCertificate:
+              type: string
+              description: PEM-encoded certificate chain
+            pemPrivateKey:
+              type: string
+              description: PEM-encoded private key
+        sanDnsnames:
+          type: array
+          items:
+            type: string
+          description: Subject Alternative Names DNS names
+        pemCertificate:
+          type: string
+          description: PEM-encoded certificate chain
+        expireTime:
+          type: string
+          format: date-time
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        scope:
+          type: string
+          enum: [DEFAULT, EDGE_CACHE, ALL_REGIONS]
+    CertificateMap:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    DnsAuthorization:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        domain:
+          type: string
+          description: The domain name for which DNS authorization is being created
+        dnsResourceRecord:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+            data:
+              type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        nextPageToken:
+          type: string
+    ListCertificateMapsResponse:
+      type: object
+      properties:
+        certificateMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CertificateMap'
+        nextPageToken:
+          type: string
+    ListDnsAuthorizationsResponse:
+      type: object
+      properties:
+        dnsAuthorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsAuthorization'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud

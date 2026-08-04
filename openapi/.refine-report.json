@@ -1,0 +1,18 @@
+{
+  "provider": "google-cloud-certificate-manager",
+  "sources": [
+    "google-cloud-certificate-manager-certificatemaps-api-openapi.yml",
+    "google-cloud-certificate-manager-certificates-api-openapi.yml",
+    "google-cloud-certificate-manager-dnsauthorizations-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-certificate-manager-certificatemaps-api-openapi.yml",
+    "google-cloud-certificate-manager-certificates-api-openapi.yml",
+    "google-cloud-certificate-manager-dnsauthorizations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

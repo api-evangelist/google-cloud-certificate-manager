@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "d5bad509-2470-4a9f-be07-12aecde09170",
+    "name": "Google Cloud Certificate Manager CertificateMaps API",
+    "description": "The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:25.000Z",
+    "updatedAt": "2026-07-28T01:46:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d5bad509-2470-4a9f-be07-12aecde09170"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "certificateMaps",
+                      "item": [
+                        {
+                          "name": "Google Cloud Certificate Manager List certificate maps",
+                          "id": "011df734-e302-4258-b331-48b78bda5183",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificateMaps?pageSize=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "certificateMaps"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "eddb188f-75cd-46da-b0db-4ef36e91b84e",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2e2d7fe8-fb35-406a-a8d8-f80c581c11a4",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists certificate maps in a given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "aeccde10-0732-48e0-8f84-c796a0d1917f",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificateMaps?pageSize=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "certificateMaps"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"certificateMaps\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"consecteturfe\": \"<string>\",\n        \"elit_927\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"est_e5f\": \"<string>\",\n        \"tempor_6\": \"<string>\",\n        \"officiac\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:26.000Z",
+                              "updatedAt": "2026-07-28T01:46:26.000Z",
+                              "uid": "35240-aeccde10-0732-48e0-8f84-c796a0d1917f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:26.000Z",
+                          "updatedAt": "2026-07-28T01:46:26.000Z",
+                          "uid": "35240-011df734-e302-4258-b331-48b78bda5183"
+                        }
+                      ],
+                      "id": "a15d75d1-6a24-4389-a949-7147ce2bf3fe",
+                      "createdAt": "2026-07-28T01:46:26.000Z",
+                      "updatedAt": "2026-07-28T01:46:26.000Z",
+                      "uid": "35240-a15d75d1-6a24-4389-a949-7147ce2bf3fe"
+                    }
+                  ],
+                  "id": "9bcc550b-b2d1-4bfd-9341-1191fa7bee94",
+                  "createdAt": "2026-07-28T01:46:26.000Z",
+                  "updatedAt": "2026-07-28T01:46:26.000Z",
+                  "uid": "35240-9bcc550b-b2d1-4bfd-9341-1191fa7bee94"
+                }
+              ],
+              "id": "a3ec6ee8-cb0a-4efc-b831-e2ab328a1c80",
+              "createdAt": "2026-07-28T01:46:26.000Z",
+              "updatedAt": "2026-07-28T01:46:26.000Z",
+              "uid": "35240-a3ec6ee8-cb0a-4efc-b831-e2ab328a1c80"
+            }
+          ],
+          "id": "2912136c-8de7-477a-bc71-df1262dc21c6",
+          "createdAt": "2026-07-28T01:46:26.000Z",
+          "updatedAt": "2026-07-28T01:46:26.000Z",
+          "uid": "35240-2912136c-8de7-477a-bc71-df1262dc21c6"
+        }
+      ],
+      "id": "068cabb0-7736-40ff-8b7f-4db2a1e7b02b",
+      "createdAt": "2026-07-28T01:46:26.000Z",
+      "updatedAt": "2026-07-28T01:46:26.000Z",
+      "uid": "35240-068cabb0-7736-40ff-8b7f-4db2a1e7b02b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://certificatemanager.googleapis.com/v1"
+    }
+  ]
+}

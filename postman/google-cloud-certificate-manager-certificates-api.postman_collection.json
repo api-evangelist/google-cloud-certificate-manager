@@ -1,0 +1,358 @@
+{
+  "info": {
+    "_postman_id": "0fabddf9-c379-48f7-9375-7ec2d03b08a5",
+    "name": "Google Cloud Certificate Manager CertificateMaps Certificates API",
+    "description": "The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:26.000Z",
+    "updatedAt": "2026-07-28T01:46:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0fabddf9-c379-48f7-9375-7ec2d03b08a5"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "certificates",
+                      "item": [
+                        {
+                          "name": "Google Cloud Certificate Manager List certificates",
+                          "id": "b2041150-bd29-4124-8a0c-cbdea80f1ea8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificates?pageSize=<integer>&pageToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "certificates"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d2dbebae-5f59-4c43-a376-81beebe0db0a",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a54ed170-fec5-478f-bc9b-c188ab4f9280",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists certificates in a given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "1b007284-48fe-48b0-978a-ffa1d5e65238",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificates?pageSize=<integer>&pageToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "certificates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"certificates\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"occaecate4f\": \"<string>\"\n      },\n      \"managed\": {\n        \"domains\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dnsAuthorizations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"issuanceConfig\": \"<string>\",\n        \"state\": \"FAILED\"\n      },\n      \"selfManaged\": {\n        \"pemCertificate\": \"<string>\",\n        \"pemPrivateKey\": \"<string>\"\n      },\n      \"sanDnsnames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pemCertificate\": \"<string>\",\n      \"expireTime\": \"<dateTime>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"scope\": \"DEFAULT\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"culpa_45d\": \"<string>\"\n      },\n      \"managed\": {\n        \"domains\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dnsAuthorizations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"issuanceConfig\": \"<string>\",\n        \"state\": \"FAILED\"\n      },\n      \"selfManaged\": {\n        \"pemCertificate\": \"<string>\",\n        \"pemPrivateKey\": \"<string>\"\n      },\n      \"sanDnsnames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pemCertificate\": \"<string>\",\n      \"expireTime\": \"<dateTime>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"scope\": \"EDGE_CACHE\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:46:27.000Z",
+                              "updatedAt": "2026-07-28T01:46:27.000Z",
+                              "uid": "35240-1b007284-48fe-48b0-978a-ffa1d5e65238"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:27.000Z",
+                          "updatedAt": "2026-07-28T01:46:27.000Z",
+                          "uid": "35240-b2041150-bd29-4124-8a0c-cbdea80f1ea8"
+                        },
+                        {
+                          "name": "Google Cloud Certificate Manager Create a certificate",
+                          "id": "d61822db-129f-44d0-b70f-18ba1a1f5d60",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"fugiat1e\": \"<string>\",\n    \"aliquip34\": \"<string>\"\n  },\n  \"managed\": {\n    \"domains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dnsAuthorizations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"issuanceConfig\": \"<string>\",\n    \"state\": \"ACTIVE\"\n  },\n  \"selfManaged\": {\n    \"pemCertificate\": \"<string>\",\n    \"pemPrivateKey\": \"<string>\"\n  },\n  \"sanDnsnames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pemCertificate\": \"<string>\",\n  \"expireTime\": \"<dateTime>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"scope\": \"DEFAULT\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificates?certificateId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "certificates"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "certificateId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1f3f66bc-7fef-4968-a399-8ae0ab2408e8",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "46326164-c759-4c39-9403-1124c552a10a",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new certificate in a given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "6ab574f2-3cab-41b9-81df-b4a6c9a0ab44",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"fugiat1e\": \"<string>\",\n    \"aliquip34\": \"<string>\"\n  },\n  \"managed\": {\n    \"domains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dnsAuthorizations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"issuanceConfig\": \"<string>\",\n    \"state\": \"ACTIVE\"\n  },\n  \"selfManaged\": {\n    \"pemCertificate\": \"<string>\",\n    \"pemPrivateKey\": \"<string>\"\n  },\n  \"sanDnsnames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pemCertificate\": \"<string>\",\n  \"expireTime\": \"<dateTime>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"scope\": \"DEFAULT\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/certificates?certificateId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "certificates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "certificateId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:46:27.000Z",
+                              "updatedAt": "2026-07-28T01:46:27.000Z",
+                              "uid": "35240-6ab574f2-3cab-41b9-81df-b4a6c9a0ab44"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:46:27.000Z",
+                          "updatedAt": "2026-07-28T01:46:27.000Z",
+                          "uid": "35240-d61822db-129f-44d0-b70f-18ba1a1f5d60"
+                        }
+                      ],
+                      "id": "f9c1ccc8-0987-4f96-bfa2-73a5a5af5c16",
+                      "createdAt": "2026-07-28T01:46:27.000Z",
+                      "updatedAt": "2026-07-28T01:46:27.000Z",
+                      "uid": "35240-f9c1ccc8-0987-4f96-bfa2-73a5a5af5c16"
+                    }
+                  ],
+                  "id": "30b489b9-fe32-4c25-bc15-2d288dd1cefa",
+                  "createdAt": "2026-07-28T01:46:27.000Z",
+                  "updatedAt": "2026-07-28T01:46:27.000Z",
+                  "uid": "35240-30b489b9-fe32-4c25-bc15-2d288dd1cefa"
+                }
+              ],
+              "id": "aef76f2c-d7ca-4b8e-b1a4-a150917f42fa",
+              "createdAt": "2026-07-28T01:46:27.000Z",
+              "updatedAt": "2026-07-28T01:46:27.000Z",
+              "uid": "35240-aef76f2c-d7ca-4b8e-b1a4-a150917f42fa"
+            }
+          ],
+          "id": "6019289a-48c4-4c82-b96f-1bd55a0b94df",
+          "createdAt": "2026-07-28T01:46:27.000Z",
+          "updatedAt": "2026-07-28T01:46:27.000Z",
+          "uid": "35240-6019289a-48c4-4c82-b96f-1bd55a0b94df"
+        }
+      ],
+      "id": "4c4ddee4-b582-4929-b24f-61345d303400",
+      "createdAt": "2026-07-28T01:46:27.000Z",
+      "updatedAt": "2026-07-28T01:46:27.000Z",
+      "uid": "35240-4c4ddee4-b582-4929-b24f-61345d303400"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://certificatemanager.googleapis.com/v1"
+    }
+  ]
+}
