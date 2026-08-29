@@ -4,6 +4,18 @@ description: >-
   Google Cloud Certificate Manager is a service that lets you acquire and manage TLS (SSL) certificates for use with
   Google Cloud load balancers and other Google Cloud services. It supports provisioning, renewing, and deploying both
   Google-managed and self-managed certificates, simplifying certificate lifecycle management at scale.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
