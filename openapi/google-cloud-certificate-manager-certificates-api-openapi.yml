@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Certificate Manager CertificateMaps Certificates API
+  title: Google Cloud Certificate Manager Certificates API
   description: The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.
   version: v1
   contact:
@@ -70,11 +70,6 @@ components:
       required: true
       schema:
         type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
@@ -86,6 +81,11 @@ components:
       required: true
       schema:
         type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
   schemas:
     Operation:
       type: object
@@ -94,6 +94,15 @@ components:
           type: string
         done:
           type: boolean
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        nextPageToken:
+          type: string
     Certificate:
       type: object
       properties:
@@ -163,15 +172,6 @@ components:
           - DEFAULT
           - EDGE_CACHE
           - ALL_REGIONS
-    ListCertificatesResponse:
-      type: object
-      properties:
-        certificates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Certificate'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

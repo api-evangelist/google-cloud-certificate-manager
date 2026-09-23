@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Certificate Manager CertificateMaps Dns Authorizations API
+  title: Google Cloud Certificate Manager Dns Authorizations API
   description: The Certificate Manager API provides programmatic access to manage TLS certificates, certificate maps, DNS authorizations, and certificate issuance configurations for Google Cloud. It supports automated provisioning and renewal of Google-managed certificates and upload of self-managed certificates.
   version: v1
   contact:
@@ -36,39 +36,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDnsAuthorizationsResponse'
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
-    ListDnsAuthorizationsResponse:
-      type: object
-      properties:
-        dnsAuthorizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsAuthorization'
-        nextPageToken:
-          type: string
     DnsAuthorization:
       type: object
       properties:
@@ -94,6 +62,38 @@ components:
         updateTime:
           type: string
           format: date-time
+    ListDnsAuthorizationsResponse:
+      type: object
+      properties:
+        dnsAuthorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsAuthorization'
+        nextPageToken:
+          type: string
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2
