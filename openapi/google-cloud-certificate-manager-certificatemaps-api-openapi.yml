@@ -37,19 +37,14 @@ paths:
                 $ref: '#/components/schemas/ListCertificateMapsResponse'
 components:
   parameters:
-    projectId:
-      name: projectId
+    location:
+      name: location
       in: path
       required: true
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    location:
-      name: location
+    projectId:
+      name: projectId
       in: path
       required: true
       schema:
@@ -59,6 +54,11 @@ components:
       in: query
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   schemas:
     CertificateMap:
       type: object
