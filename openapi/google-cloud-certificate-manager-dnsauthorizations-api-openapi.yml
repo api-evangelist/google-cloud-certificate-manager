@@ -37,19 +37,13 @@ paths:
                 $ref: '#/components/schemas/ListDnsAuthorizationsResponse'
 components:
   parameters:
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       schema:
         type: integer
-    projectId:
-      name: projectId
+    location:
+      name: location
       in: path
       required: true
       schema:
@@ -57,6 +51,12 @@ components:
     pageToken:
       name: pageToken
       in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
       schema:
         type: string
   schemas:

@@ -63,16 +63,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/Operation'
 components:
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
-    ListCertificatesResponse:
-      type: object
-      properties:
-        certificates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Certificate'
-        nextPageToken:
-          type: string
     Certificate:
       type: object
       properties:
@@ -142,6 +156,15 @@ components:
           - DEFAULT
           - EDGE_CACHE
           - ALL_REGIONS
+    ListCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+        nextPageToken:
+          type: string
     Operation:
       type: object
       properties:
@@ -149,29 +172,6 @@ components:
           type: string
         done:
           type: boolean
-  parameters:
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

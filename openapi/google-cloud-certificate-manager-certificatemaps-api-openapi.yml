@@ -37,19 +37,13 @@ paths:
                 $ref: '#/components/schemas/ListCertificateMapsResponse'
 components:
   parameters:
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
     pageSize:
       name: pageSize
       in: query
       schema:
         type: integer
-    projectId:
-      name: projectId
+    location:
+      name: location
       in: path
       required: true
       schema:
@@ -59,7 +53,22 @@ components:
       in: query
       schema:
         type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
+    ListCertificateMapsResponse:
+      type: object
+      properties:
+        certificateMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/CertificateMap'
+        nextPageToken:
+          type: string
     CertificateMap:
       type: object
       properties:
@@ -77,15 +86,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    ListCertificateMapsResponse:
-      type: object
-      properties:
-        certificateMaps:
-          type: array
-          items:
-            $ref: '#/components/schemas/CertificateMap'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
