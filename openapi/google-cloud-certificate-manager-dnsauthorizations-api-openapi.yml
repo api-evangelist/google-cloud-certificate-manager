@@ -37,13 +37,19 @@ paths:
                 $ref: '#/components/schemas/ListDnsAuthorizationsResponse'
 components:
   parameters:
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
     pageSize:
       name: pageSize
       in: query
       schema:
         type: integer
-    location:
-      name: location
+    projectId:
+      name: projectId
       in: path
       required: true
       schema:
@@ -53,13 +59,16 @@ components:
       in: query
       schema:
         type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
+    ListDnsAuthorizationsResponse:
+      type: object
+      properties:
+        dnsAuthorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsAuthorization'
+        nextPageToken:
+          type: string
     DnsAuthorization:
       type: object
       properties:
@@ -85,15 +94,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    ListDnsAuthorizationsResponse:
-      type: object
-      properties:
-        dnsAuthorizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsAuthorization'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
